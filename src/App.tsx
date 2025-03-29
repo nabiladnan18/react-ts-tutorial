@@ -13,7 +13,7 @@ function App() {
             </div>
             <Text text1={"there"} />
             <div>
-                <Message name={"Someone"} />
+                <Message name="Nabil" />
             </div>
             <div>
                 <ListGroup
