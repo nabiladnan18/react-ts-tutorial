@@ -3,9 +3,11 @@ import { useState } from "react";
 interface Props {
     items: string[];
     heading: string;
+    // (item: string) => void
+    onSelectItem: (item: string) => void;
 }
 
-function ListGroupMosh({ items, heading }: Props) {
+function ListGroupMosh({ items, heading, onSelectItem }: Props) {
     // let items = ["Scarborough", "North York", "East York", "Toronto"];
 
     //Hook
@@ -26,7 +28,10 @@ function ListGroupMosh({ items, heading }: Props) {
                                 ? "px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg"
                                 : "list-disc"
                         }
-                        onClick={() => setSelectedIndex(index)}
+                        onClick={() => {
+                            setSelectedIndex(index);
+                            onSelectItem(item);
+                        }}
                         key={item}
                     >
                         {item}
