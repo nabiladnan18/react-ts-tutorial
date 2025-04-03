@@ -1,9 +1,11 @@
 import "./App.css";
 import Message from "./Message";
 import Alert from "./components/Alert";
+import Alert2 from "./components/Alert2";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 import ListGroupMosh from "./components/ListGroupMosh";
+import { useState } from "react";
 
 function App() {
     let items = ["Scarborough", "North York", "East York", "Toronto"];
@@ -11,6 +13,8 @@ function App() {
     const handleSelectItem = (item: string) => {
         console.log(item);
     };
+
+    let [alertVisible, setAlertVisibility] = useState(false);
 
     return (
         <>
@@ -41,8 +45,15 @@ function App() {
             <Button
                 color="error"
                 children="Click Me!"
-                onClick={() => console.log("Clicked")}
+                onClick={() => setAlertVisibility(true)}
             />
+            {alertVisible && (
+                <Alert2
+                    type="warning"
+                    message="This is an info alert"
+                    onClose={() => setAlertVisibility(false)}
+                />
+            )}
         </>
     );
 }
